@@ -2,13 +2,13 @@
 
 **Paste it. Check it. Stay safe.**
 
-ScamShield AI instantly analyzes any suspicious message — SMS, email,
-WhatsApp, or social media DM — and tells you whether it's safe,
+ScamShield AI instantly analyzes any suspicious message, SMS, email,
+WhatsApp, or social media DM and tells you whether it's safe,
 suspicious, or a likely scam, with a plain-language explanation and a
-practical next step. No sign-up, no data stored about who you are —
+practical next step. No sign-up, no data stored about who you are,
 just paste and check.
 
-Built for **Youth Code × AI** — Track 03: *AI That Actually Helps People*.
+Built for **Youth Code × AI** - Track 03: *AI That Actually Helps People*.
 
 ---
 
@@ -16,19 +16,19 @@ Built for **Youth Code × AI** — Track 03: *AI That Actually Helps People*.
 
 1. You paste a message into the box.
 2. The backend runs it through a **local Machine Learning + NLP
-   detection engine** — no external AI API, no API key, no cost:
+   detection engine** no external AI API, no API key, no cost:
    - A **TF-IDF + Logistic Regression** classifier (trained on a
      built-in dataset of scam vs. legitimate messages) estimates how
      scam-like the wording is.
    - A **rule-based NLP layer** (regex pattern matching) detects
-     specific, explainable red flags — urgency language, requests for
+     specific, explainable red flags, urgency language, requests for
      money/gift cards/crypto, suspicious links, requests for sensitive
-     info, impersonation, generic greetings — and tags the scam category.
+     info, impersonation, generic greetings, and tags the scam category.
    - The two signals are blended into a final risk score and verdict.
-3. The result — verdict, risk score, scam category, red flags, and
-   advice — is saved to a small local database and shown to you with
+3. The result, verdict, risk score, scam category, red flags, and
+   advice, is saved to a small local database and shown to you with
    an animated risk gauge.
-4. A "recently flagged patterns" feed shows anonymized verdicts from
+5. A "recently flagged patterns" feed shows anonymized verdicts from
    other checks (never the actual message text), so visitors can see
    ScamShield AI in action even before they run their own check.
 
@@ -43,18 +43,13 @@ Built for **Youth Code × AI** — Track 03: *AI That Actually Helps People*.
 | Database     | SQLite via SQLAlchemy                  |
 | ML / NLP     | scikit-learn (TF-IDF + Logistic Regression) + regex-based rule engine |
 
+
 > **Why no paid AI API?** ScamShield AI is built to be free to run
-> forever, with zero API keys and zero per-request cost — important
+> forever, with zero API keys and zero per-request cost, important
 > for a tool meant to actually help people, not gate it behind a
 > subscription. The ML model trains itself automatically on first run
 > from the built-in dataset (`training_data.py`) and caches itself to
 > `scam_model.pkl`, so startup after the first run is instant.
-
-> **Why no React?** A plain HTML/CSS/JS frontend gives the same
-> one-page, responsive result with zero build tooling — just open
-> `index.html` in a browser, no npm install or bundler required. It
-> can be ported into a React component later without changing the
-> backend at all, if a build step is ever wanted.
 
 ---
 
@@ -79,10 +74,10 @@ scamshield/
 
 ---
 
-## Deployment (single platform — Render)
+## Deployment (single platform - Render)
 
 The FastAPI backend serves the frontend directly (via a static-files
-mount), so the whole app — API + UI — deploys as **one Render Web
+mount), so the whole app, API + UI, deploys as **one Render Web
 Service** with one URL. No separate frontend host needed.
 
 1. Push this repo to GitHub.
@@ -91,11 +86,11 @@ Service** with one URL. No separate frontend host needed.
    - **Root directory:** `backend`
    - **Build command:** `pip install -r requirements.txt`
    - **Start command:** `uvicorn main:app --host 0.0.0.0 --port $PORT`
-4. Deploy. Render gives you a URL like `https://scamshield-ai.onrender.com` — opening it shows the app directly; `/api/...` on that same URL is the API.
+4. Deploy. Render gives you a URL like `https://scamshield-ai.onrender.com`, opening it shows the app directly; `/api/...` on that same URL is the API.
 
-That's it — no `API_BASE_URL` to configure, since the frontend calls the API via a relative path on the same origin.
+That's it, no `API_BASE_URL` to configure, since the frontend calls the API via a relative path on the same origin.
 
-> Free Render services sleep after inactivity and take ~30s to wake on the next request — fine for a hackathon demo, just open the link a minute before you need it.
+> Free Render services sleep after inactivity and take ~30s to wake on the next request, fine for a hackathon demo, just open the link a minute before you need it.
 
 ---
 
@@ -127,7 +122,7 @@ on the built-in dataset and caches itself to `scam_model.pkl`. Every
 run after that is instant.
 
 Open `http://localhost:8000` in a browser (or your Codespaces/Replit
-forwarded URL) — you'll see the ScamShield AI app directly. The API
+forwarded URL), you'll see the ScamShield AI app directly. The API
 lives at the same address under `/api/...` (e.g. `/api/health`).
 
 ### 4. Try it
