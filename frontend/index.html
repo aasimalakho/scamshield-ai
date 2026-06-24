@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ScamShield AI — Scam & Fraud Detection Tool</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-name">ScamShield<span class="brand-ai">AI</span></span>
+    </div>
+    <div class="header-stat" id="header-stat">
+      <span class="stat-number" id="stat-total">—</span>
+      <span class="stat-label">messages checked</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AI Fraud Detection Tool · Free · No sign-up</p>
+        <h1>Got a message that<br>feels <em>off</em>?</h1>
+        <p class="hero-sub">Paste any SMS, email, WhatsApp message, or DM below. ScamShield AI scans it for scam patterns and tells you exactly what's wrong, in seconds.</p>
+      </div>
+
+      <div class="analyzer-card">
+        <label for="message-input" class="input-label">Paste the message you received</label>
+        <textarea
+          id="message-input"
+          placeholder="e.g. &quot;Congratulations! You've won a $1,000 gift card. Click here within 24 hours to claim: bit.ly/claim-now&quot;"
+          maxlength="4000"
+          aria-describedby="char-count"
+        ></textarea>
+        <div class="input-footer">
+          <span class="char-count" id="char-count">0 / 4000</span>
+          <button id="analyze-btn" class="btn-primary">
+            <span class="btn-text">Run fraud detection scan</span>
+          </button>
+        </div>
+        <p class="error-message" id="error-message" role="alert" hidden></p>
+      </div>
+    </section>
+
+    <section class="result-section" id="result-section" hidden>
+      <div class="result-card">
+
+        <div class="gauge-wrap">
+          <svg class="gauge" viewBox="0 0 200 110" aria-hidden="true">
+            <path class="gauge-track" d="M 10 100 A 90 90 0 0 1 190 100" />
+            <path class="gauge-fill" id="gauge-fill" d="M 10 100 A 90 90 0 0 1 190 100" />
+            <line class="gauge-needle" id="gauge-needle" x1="100" y1="100" x2="100" y2="25" />
+            <circle class="gauge-hub" cx="100" cy="100" r="7" />
+          </svg>
+          <div class="gauge-readout">
+            <span class="verdict-label" id="verdict-label">—</span>
+            <span class="risk-score" id="risk-score-label">Risk score: —</span>
+          </div>
+        </div>
+
+        <div class="result-details">
+          <div class="category-tag" id="category-tag">—</div>
+          <h2 class="result-heading" id="result-heading">—</h2>
+
+          <div class="detail-block">
+            <h3>What we found</h3>
+            <p id="explanation-text">—</p>
+          </div>
+
+          <div class="detail-block advice-block">
+            <h3>What to do next</h3>
+            <p id="advice-text">—</p>
+          </div>
+
+          <button class="btn-secondary" id="check-another-btn">Check another message</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="recent-section">
+      <h2 class="section-heading">Recently flagged patterns</h2>
+      <p class="section-sub">Anonymized — only the scam type and risk level are shown, never the message itself.</p>
+      <div class="ticker-wrap">
+        <div class="ticker" id="recent-ticker">
+          <p class="ticker-empty">No checks yet — be the first to run a fraud detection scan above.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-section">
+      <h2 class="section-heading">How our scam detection engine works</h2>
+      <p class="section-sub">ScamShield AI looks for three things in every message.</p>
+      <div class="how-grid">
+        <div class="how-card">
+          <span class="how-mark">Urgency</span>
+          <p>Scams rush you. "Act now," "24 hours," "your account will be locked" — pressure is the first tell.</p>
+        </div>
+        <div class="how-card">
+          <span class="how-mark">Ask</span>
+          <p>What does it actually want — a click, a code, a gift card, a wire transfer? Real organizations rarely ask this way.</p>
+        </div>
+        <div class="how-card">
+          <span class="how-mark">Identity</span>
+          <p>Is the sender who they claim to be? Mismatched links, odd domains, and generic greetings give it away.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>ScamShield AI — built for Youth Code × AI, Track 03: AI That Actually Helps People.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+          </html>
